@@ -17,10 +17,10 @@ jobs:
       run: |
         echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USER --password-stdin
     - name: Build the kanban-app Docker image
-      run: cd kanban-app && docker build . --file Dockerfile --tag archangel91/kanban-app:v$(GITHUB_JOB)
+      run: cd kanban-app && docker build . --file Dockerfile --tag archangel91/kanban-app:v$GITHUB_JOB
     - name: Build the kanban-ui Docker image
-      run: cd kanban-ui && docker build . --file Dockerfile --tag archangel91/kanban-ui:v$(GITHUB_JOB)
+      run: cd kanban-ui && docker build . --file Dockerfile --tag archangel91/kanban-ui:v$GITHUB_JOB
     - name: Docker Push kanban-ui
-      run: docker push archangel91/kanban-ui:v$(GITHUB_JOB)
+      run: docker push archangel91/kanban-ui:v$GITHUB_JOB
     - name: Docker Push kanban-app
-      run: docker push archangel91/kanban-app:v$(GITHUB_JOB)
+      run: docker push archangel91/kanban-app:v$GITHUB_JOB
